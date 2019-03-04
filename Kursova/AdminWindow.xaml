@@ -1,0 +1,251 @@
+﻿<Window x:Class="Kursova.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursova"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,2,-0.4,-2">
+        <Grid.Background>
+            <ImageBrush ImageSource="Image\Courses.png"/>
+        </Grid.Background>
+        
+        <Rectangle x:Name="MyRectangle1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="136" Margin="20,156,0,0" Stroke="Black" StrokeDashArray="2 2" VerticalAlignment="Top" Width="118" Visibility="Hidden"   />
+        <Rectangle x:Name="MyRectangle2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="324,119,0,0" Stroke="Black" StrokeDashArray="2 2" VerticalAlignment="Top" Width="166" Visibility="Hidden"   />
+        
+        <Menu HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Margin="0,0,-0.4,0">
+            
+            <MenuItem Header="Account">
+                <MenuItem Header="Information about developer" Click="Information_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Info.png" Margin="-3,-3,-10,-3" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                
+                <MenuItem Header="Change user" Click="Change_user_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Change user.png" Margin="-3,-3,-10,-3" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem Header="Instagram of developer" Click="Inst_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Instagram.png" Margin="-3,-3,-10,-3" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Exit" Click="Exit_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Exit.png" Margin="-3,-3,-9,-2" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            
+            <MenuItem Header="Actions" >
+                
+                <MenuItem Header="Select">
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Select.png" Margin="-5,-3,-7,-3" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="Teacher" Click="Teacher_Select_Click"/>
+                    <MenuItem Header="Customer" Click="Customer_Select_Click"/>
+                    <MenuItem Header="Studing" Click="Studing_Select_Click"/>
+                    <MenuItem Header="Schedule" Click="Schedule_Select_Click"/>
+                    <MenuItem Header="Group" Click="Group_Select_Click"/>
+                    <MenuItem Header="Exam" Click="Exam_Select_Click"/>
+                    <MenuItem Header="Level" Click="Level_Select_Click"/>
+                    <MenuItem Header="Language" Click="Language_Select_Click"/>
+                    <MenuItem Header="Payment" Click="Payment_Select_Click"/>
+                </MenuItem>
+                
+                <MenuItem Header="Insert">
+                    <MenuItem.Icon>
+                        <Image Source="Icons/Insert.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="Teacher" Click="Teacher_Insert_Click"/>
+                    <MenuItem Header="Customer" Click="Customer_Insert_Click"/>
+                    <MenuItem Header="Studing" Click="Studing_Insert_Click"/>
+                    <MenuItem Header="Schedule" Click="Schedule_Insert_Click"/>
+                    <MenuItem Header="Group" Click="Group_Insert_Click"/>
+                    <MenuItem Header="Exam" Click="Exam_Insert_Click" />
+                    <MenuItem Header="Level" Click="Level_Insert_Click"/>
+                    <MenuItem Header="Language" Click="Language_Insert_Click"/>
+                    <MenuItem Header="Payment" Click="Payment_Insert_Click"/>
+                </MenuItem>
+                
+                <MenuItem Header="Update">
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Update.png" Margin="0,0,-1,0" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="Teacher" Click="Teacher_Update_Click"/>
+                    <MenuItem Header="Customer" Click="Customer_Update_Click"/>
+                    <MenuItem Header="Studing" Click="Studing_Update_Click"/>
+                    <MenuItem Header="Schedule" Click="Schedule_Update_Click"/>
+                    <MenuItem Header="Group" Click="Group_Update_Click"/>
+                    <MenuItem Header="Exam" Click="Exam_Update_Click"/>
+                    <MenuItem Header="Level" Click="Level_Update_Click"/>
+                    <MenuItem Header="Language" Click="Language_Update_Click"/>
+                    <MenuItem Header="Payment" Click="Payment_Update_Click"/>
+                </MenuItem>
+                
+                <MenuItem Header="Delete">
+                    <MenuItem.Icon>
+                        <Image Source="Icons\Delete.png" Margin="0,0,-3,0" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="Teacher"  Click="Teacher_Delete_Click"/>
+                    <MenuItem Header="Customer" Click="Customer_Delete_Click"/>
+                    <MenuItem Header="Studing" Click="Studing_Delete_Click"/>
+                    <MenuItem Header="Schedule" Click="Schedule_Delete_Click"/>
+                    <MenuItem Header="Group" Click="Group_Delete_Click"/>
+                    <MenuItem Header="Exam" Click="Exam_Delete_Click"/>
+                    <MenuItem Header="Level" Click="Level_Delete_Click"/>
+                    <MenuItem Header="Language" Click="Language_Delete_Click"/>
+                    <MenuItem Header="Payment" Click="Payment_Delete_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Find by">
+                    <MenuItem.Icon>
+                         <Image Source="Icons\Find by.png" Margin="2,-3,-5,-1" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="Teacher" Click="Teacher_FindBy_Click"/>
+                    <MenuItem Header="Customer" Click="Customer_FindBy_Click"/>
+                    <MenuItem Header="Studing" Click="Studing_FindBy_Click"/>
+                    <MenuItem Header="Schedule" Click="Schedule_FindBy_Click"/>
+                    <MenuItem Header="Group" Click="Group_FindBy_Click"/>
+                    <MenuItem Header="Exam" Click="Exam_FindBy_Click"/>
+                    <MenuItem Header="Level" Click="Level_FindBy_Click"/>
+                    <MenuItem Header="Language" Click="Language_FindBy_Click"/>
+                    <MenuItem Header="Payment" Click="Payment_FindBy_Click"/>
+                    </MenuItem>
+                </MenuItem>
+        </Menu>
+        
+        <DataGrid x:Name="DataGridView" HorizontalAlignment="Left" Height="312" Margin="442,72,0,0" VerticalAlignment="Top" Width="320" Visibility="Hidden" SelectionChanged="DataGridView_SelectionChanged" IsReadOnly="True"  />
+       
+        <ListBox x:Name="ListBox_Teacher" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden"  >
+            <CheckBox Content="id_teacher" Checked="Teacher_CheckBox" Unchecked="Teacher_CheckBox" />
+            <CheckBox Content="PIB" Checked="Teacher_CheckBox" Unchecked="Teacher_CheckBox" />
+            <CheckBox Content="Day_of_Birth" Checked="Teacher_CheckBox" Unchecked="Teacher_CheckBox" />
+        </ListBox>
+       
+        <ListBox x:Name="ListBox_Customer" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_customer" Checked="Customer_Checked" Unchecked="Customer_Checked"/>
+            <CheckBox Content="PIB" Checked="Customer_Checked" Unchecked="Customer_Checked"/>
+            <CheckBox Content="Day_of_Birth" Checked="Customer_Checked" Unchecked="Customer_Checked"/>
+            <CheckBox Content="id_payment1" Checked="Customer_Checked" Unchecked="Customer_Checked"/>
+        </ListBox>
+        
+        <ListBox x:Name="ListBox_Studing" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_studing" Checked="Studing_Checked" Unchecked="Studing_Checked"/>
+            <CheckBox Content="id_teacher1" Checked="Studing_Checked" Unchecked="Studing_Checked"/>
+            <CheckBox Content="id_customer1" Checked="Studing_Checked" Unchecked="Studing_Checked"/>
+            <CheckBox Content="id_group1" Checked="Studing_Checked" Unchecked="Studing_Checked"/>
+            <CheckBox Content="id_level1" Checked="Studing_Checked" Unchecked="Studing_Checked"/>
+        </ListBox>
+       
+        <ListBox x:Name="ListBox_Schedule" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_schedule" Checked="Schedule_Checked" Unchecked="Schedule_Checked"/>
+            <CheckBox Content="Start_Time" Checked="Schedule_Checked" Unchecked="Schedule_Checked"/>
+            <CheckBox Content="End_Time" Checked="Schedule_Checked" Unchecked="Schedule_Checked"/>
+            <CheckBox Content="Day" Checked="Schedule_Checked" Unchecked="Schedule_Checked"/>
+            <CheckBox Content="id_group1" Checked="Schedule_Checked" Unchecked="Schedule_Checked"/>
+        </ListBox>
+       
+        <ListBox x:Name="ListBox_Group" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_group" Checked="Group_Checked" Unchecked="Group_Checked"/>
+            <CheckBox Content="Num_of_Students" Checked="Group_Checked" Unchecked="Group_Checked"/>
+            <CheckBox Content="Duration_of_lesson" Checked="Group_Checked" Unchecked="Group_Checked"/>
+            <CheckBox Content="Audience" Checked="Group_Checked" Unchecked="Group_Checked"/>
+        </ListBox>
+       
+        <ListBox x:Name="ListBox_Exam" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_exam" Checked="Exam_Checked" Unchecked="Exam_Checked"/>
+            <CheckBox Content="Day" Checked="Exam_Checked" Unchecked="Exam_Checked"/>
+            <CheckBox Content="Grade" Checked="Exam_Checked" Unchecked="Exam_Checked"/>
+            <CheckBox Content="Start" Checked="Exam_Checked" Unchecked="Exam_Checked"/>
+            <CheckBox Content="id_level1" Checked="Exam_Checked" Unchecked="Exam_Checked"/>
+        </ListBox>
+        
+        <ListBox x:Name="ListBox_Level" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_level" Checked="Level_Checked" Unchecked="Level_Checked"/>
+            <CheckBox Content="Name_of_level" Checked="Level_Checked" Unchecked="Level_Checked"/>
+            <CheckBox Content="Time_of_studing" Checked="Level_Checked" Unchecked="Level_Checked"/>
+            <CheckBox Content="Price" Checked="Level_Checked" Unchecked="Level_Checked"/>
+            <CheckBox Content="id_language1" Checked="Level_Checked" Unchecked="Level_Checked"/>
+        </ListBox>
+        
+        <ListBox x:Name="ListBox_Language" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_language" Checked="Language_Checked" Unchecked="Language_Checked"/>
+            <CheckBox Content="Name_of_language" Checked="Language_Checked" Unchecked="Language_Checked"/>
+        </ListBox>
+        
+        <ListBox x:Name="ListBox_Payment" HorizontalAlignment="Left" Height="Auto" Margin="152,184,0,0" VerticalAlignment="Top" Width="Auto" Visibility="Hidden">
+            <CheckBox Content="id_payment" Checked="Payment_Checked" Unchecked="Payment_Checked"/>
+            <CheckBox Content="Date" Checked="Payment_Checked" Unchecked="Payment_Checked"/>
+            <CheckBox Content="Paid" Checked="Payment_Checked" Unchecked="Payment_Checked"/>
+        </ListBox>
+        
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Height="23" Margin="142,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Visibility="Hidden"   />
+        <TextBox x:Name="TextBox2" HorizontalAlignment="Left" Height="23" Margin="142,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Visibility="Hidden"  />
+        <TextBox x:Name="TextBox3" HorizontalAlignment="Left" Height="23" Margin="142,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Visibility="Hidden"/>
+        <TextBox x:Name="TextBox4" HorizontalAlignment="Left" Height="23" Margin="142,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Visibility="Hidden"   />
+        <TextBox x:Name="TextBox5" HorizontalAlignment="Left" Height="23" Margin="142,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Visibility="Hidden"  />
+        <TextBox x:Name="TextBox6" HorizontalAlignment="Left" Height="26" Margin="20,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Visibility="Hidden" />
+        
+        <Calendar x:Name="MyCalendar" HorizontalAlignment="Left" Margin="324,149,0,0" VerticalAlignment="Top" Height="175" Width="170" Visibility="Hidden"/>
+        
+        <Button x:Name="Insert_Teacher" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Teacher_Click" Visibility="Hidden" />
+        <Button x:Name="Insert_Customer" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Customer_Click" Visibility="Hidden"  />
+        <Button x:Name="Insert_Studing" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Studing_Click" Visibility="Hidden"  />
+        <Button x:Name="Insert_Schedule" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Schedule_Click" Visibility="Hidden"  />
+        <Button x:Name="Insert_Group" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Group_Click" Visibility="Hidden"  />
+        <Button x:Name="Insert_Exam" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Exam_Click" Visibility="Hidden" />
+        <Button x:Name="Insert_Level" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Level_Click" Visibility="Hidden"  />
+        <Button x:Name="Insert_Language" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Language_Click" Visibility="Hidden"  />
+        <Button x:Name="Insert_Payment" Content="Insert" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Height="50" Width="107" Click="Insert_Payment_Click" Visibility="Hidden"    />
+        
+        <Label x:Name="Label1" Content="" HorizontalAlignment="Left" Margin="20,156,0,0" VerticalAlignment="Top" Height="25"  Visibility="Hidden"/>
+        <Label x:Name="Label2" Content="" HorizontalAlignment="Left" Margin="20,184,0,0" VerticalAlignment="Top" Height="25"  Visibility="Hidden"/>
+        <Label x:Name="Label3" Content="" HorizontalAlignment="Left" Margin="20,212,0,0" VerticalAlignment="Top" Height="26"  Visibility="Hidden" />
+        <Label x:Name="Label4" Content="" HorizontalAlignment="Left" Margin="20,241,0,0" VerticalAlignment="Top" Height="25"  Visibility="Hidden"  />
+        <Label x:Name="Label5" Content="" HorizontalAlignment="Left" Margin="20,269,0,0" VerticalAlignment="Top" Height="25"  Visibility="Hidden"  />
+        <Label x:Name="Label6" Content="" HorizontalAlignment="Left" Margin="324,119,0,0" VerticalAlignment="Top" Height="25" Width="166" Visibility="Hidden" />
+        <Label x:Name="Label7" Content="Input value:" HorizontalAlignment="Left" Margin="20,156,0,0" VerticalAlignment="Top" Height="25" Width="118" Visibility="Hidden" />
+        <Label x:Name="Label8" Content="Choose a field:" HorizontalAlignment="Left" Margin="20,208,0,0" VerticalAlignment="Top" Height="26" Width="118" Visibility="Hidden"   />
+        
+        <Button x:Name="Delete_Teacher" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Teacher_Click" Height="50" Visibility="Hidden" />
+        <Button x:Name="Delete_Customer" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Customer_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Delete_Studing" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Studing_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Delete_Schedule" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Schedule_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Delete_Group" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Group_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Delete_Exam" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Exam_Click" Height="50" Visibility="Hidden" />
+        <Button x:Name="Delete_Level" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Level_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Delete_Language" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Language_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Delete_Payment" Content="Delete" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="Delete_Payment_Click" Height="50" Visibility="Hidden"   />
+        
+        <ComboBox x:Name="ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="20,234,0,0" SelectedIndex="0" Visibility="Hidden" />
+
+        <Button x:Name="Update_Teacher" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Teacher_Click" Height="50" Visibility="Hidden" />
+        <Button x:Name="Update_Customer" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Customer_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Update_Studing" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Studing_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Update_Schedule" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Schedule_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Update_Group" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Group_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Update_Exam" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Exam_Click" Height="50" Visibility="Hidden" />
+        <Button x:Name="Update_Level" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Level_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Update_Language" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Language_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="Update_Payment" Content="Update" HorizontalAlignment="Left" Margin="184,310,0,0" VerticalAlignment="Top" Width="107" Click="Update_Payment_Click" Height="50" Visibility="Hidden"   />
+
+        <Button x:Name="FindBy_Teacher" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Teacher_Click" Height="50" Visibility="Hidden" />
+        <Button x:Name="FindBy_Customer" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Customer_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="FindBy_Studing" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Studing_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="FindBy_Schedule" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Schedule_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="FindBy_Group" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Group_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="FindBy_Exam" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Exam_Click" Height="50" Visibility="Hidden" />
+        <Button x:Name="FindBy_Level" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Level_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="FindBy_Language" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Language_Click" Height="50" Visibility="Hidden"  />
+        <Button x:Name="FindBy_Payment" Content="Find by" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Width="107" Click="FindBy_Payment_Click" Height="50" Visibility="Hidden"   />
+
+    </Grid>
+</Window>
